@@ -135,7 +135,7 @@ posts.forEach(Element => {
             <div class="post__footer">
                 <div class="likes js-likes">
                     <div class="likes__cta">
-                        <a class="like-button  js-like-button" href="#" data-postid="${Element.id}">
+                        <a class="like-button js-like-button" href="#" data-postid="${Element.id}">
                             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                             <span class="like-button__label">Mi Piace</span>
                         </a>
@@ -150,4 +150,17 @@ posts.forEach(Element => {
 
 const containerPosts = document.getElementById("container");
 containerPosts.innerHTML = mainPost;
+
+
+
+const likeButton = document.querySelector(".js-like-button");
+// likeButton.id = "button-like"
+console.log(likeButton)
+
+
+
+likeButton.addEventListener("click", function(){
+    document.querySelector(".like-button").classList.toggle("like-button--liked");
+});
+
 
