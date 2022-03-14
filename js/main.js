@@ -146,21 +146,23 @@ posts.forEach(Element => {
                 </div> 
             </div>            
         </div>`
+
 });
 
 const containerPosts = document.getElementById("container");
 containerPosts.innerHTML = mainPost;
 
+const addLike = document.querySelector(".js-likes-counter");
 
+const likePost = [];
 
 const likeButton = document.querySelector(".js-like-button");
-// likeButton.id = "button-like"
-console.log(likeButton)
-
-
 
 likeButton.addEventListener("click", function(){
     document.querySelector(".like-button").classList.toggle("like-button--liked");
-});
+    
+    addLike.innerHTML++
 
+    // likePost.push(posts["id"]);
+});
 
