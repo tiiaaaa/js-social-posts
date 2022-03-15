@@ -158,6 +158,36 @@ function generatePostContent(postElement){
 </div>`
 };
 
+const likeButtons = document.getElementsByClassName("js-like-button");
+// console.log(likeButtons);
+const likeCounters = document.getElementsByClassName("js-likes-counter");
+// console.log(likeCounters);
+
+for (let i = 0; i < likeButtons.length; i = i + 1){
+    //!Element è come dire likeButtons[i]
+    const Element = likeButtons[i];
+    const counter = likeCounters[i];
+    
+    //!Aggiungo eventlistner a likebuttons[i] e aggiungo funzione event per togliere la funzionalita di base del bottone (event.preventdefault)
+    //! quella che ogni volte che cliccao per mettere like mi portava a inizio pagina
+    Element.addEventListener("click", (Event) => {
+        Event.preventDefault();
+
+        if(Element.classList.contains("like-button--liked")){
+
+            Element.classList.remove("like-button--liked");
+            counter.innerHTML = parseInt(counter.innerHTML) - 1;
+            
+        }else{
+
+            Element.classList.add("like-button--liked");
+            counter.innerHTML = parseInt(counter.innerHTML) + 1;
+        }
+
+    })
+};
+
+
 // const addLike = document.querySelector(".js-likes-counter");
 
 // const likePost = [];
