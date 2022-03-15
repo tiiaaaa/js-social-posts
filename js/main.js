@@ -158,6 +158,8 @@ function generatePostContent(postElement){
 </div>`
 };
 
+const postIdArray = [];
+
 const likeButtons = document.getElementsByClassName("js-like-button");
 // console.log(likeButtons);
 const likeCounters = document.getElementsByClassName("js-likes-counter");
@@ -177,26 +179,18 @@ for (let i = 0; i < likeButtons.length; i = i + 1){
 
             Element.classList.remove("like-button--liked");
             counter.innerHTML = parseInt(counter.innerHTML) - 1;
-            
+            postIdArray.splice(postIdArray.indexOf(Element.getAttribute("data-postid")));
+
         }else{
 
             Element.classList.add("like-button--liked");
             counter.innerHTML = parseInt(counter.innerHTML) + 1;
+
+            postIdArray.push(Element.getAttribute("data-postid"));
+            console.log(postIdArray);
         }
 
     })
 };
 
-
-// const addLike = document.querySelector(".js-likes-counter");
-
-// const likePost = [];
-
-// const likeButton = document.querySelector(".js-like-button");
-
-// likeButton.addEventListener("click", function(){
-//     document.querySelector(".like-button").classList.toggle("like-button--liked");
-    
-//     addLike.innerHTML++
-// });
 
